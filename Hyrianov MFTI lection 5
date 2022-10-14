@@ -1,0 +1,63 @@
+def array_search (A:list, N:int, x:int):
+    """Здійснює пошук числа х в масиві А 
+        від 0 до N-1 індекса включно.
+        Вертає індекс елемента х в масиві А
+        або -1, якщо такого немає
+        Якщо в масиві кілька однакових елементів 
+        равних х, то вернути індекс першого по порядку
+    """
+    for k in range (N):
+        if A[k] == x:
+            return k
+    return -1
+
+def test_array_search ():
+    A1 = [1,2,3,4,5]
+    m = array_search (A1,5,8)
+    if m == -1:
+        print ("#test1 - ok",m)
+    else:
+        print ("#test1 - fail")
+        
+    A2 = [-1,-2,-3,-4,-5]
+    m = array_search (A2,5,-3)
+    if m == 2:
+        print ("#test2 - ok",m)
+    else:
+        print ("#test2 - fail")
+        
+    A3 = [10,20,30,10,10]
+    m = array_search (A3,5,10)
+    if m == 0:
+        print ("#test3 - ok",m)
+    else:
+        print ("#test3 - fail")
+        
+test_array_search ()
+
+def invert_array (A:list, N:int):
+    """Інверсія масиву (перестановка елементів)
+    в рамках індексів від 0 до N-1"""
+    for k in range (N//2):
+        A[k], A[N-1-k] = A[N-1-k], A[k]
+        
+def test_invert_array():
+    A1 = [1,2,3,4,5]
+    print (A1)
+    invert_array(A1,5)
+    print (A1)
+    if A1 == [5,4,3,2,1]:
+        print ("#test1invert - ok")
+    else:
+        print ("#test1array - fail")
+        
+    A2 = [0,0,0,0,0,0,0,10]
+    print (A2)
+    invert_array(A2,8)
+    print (A2)
+    if A2 == [10,0,0,0,0,0,0,0]:
+        print ("#test1invert - ok")
+    else:
+        print ("#test1array - fail")   
+        
+test_invert_array()
